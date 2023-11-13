@@ -18,11 +18,7 @@ function add_book_to_library(book) {
 
     */
 
-    title = book.title;
-    author = book.author;
-    page_count = book.page_count;
-    year_published = book.year_published;
-    checked_out = false;
+    library_collection.push(book);
 
 }
 
