@@ -64,6 +64,8 @@ function display_book_on_page(book){
 
     */
 
+    let book_elements = [];
+
     let title = book.title;
     let author = book.author;
     let page_count = book.page_count;
@@ -74,6 +76,44 @@ function display_book_on_page(book){
     book_entry.className = 'book_entry';
 
     let book_title = document.createElement('div');
+    book_title.className = 'book_title';
+    book_title.appendChild(document.createElement('h4').textContent = title);
+    book_elements.push(book_title);
+
+    let book_author = document.createElement('div');
+    book_author.className = 'book_author';
+    book_author.appendChild(document.createElement('h4').textContent = author);
+    book_elements.push(book_author);
+
+    let book_page_count = document.createElement('div');
+    book_page_count.className = 'book_page_count';
+    book_page_count.appendChild(document.createElement('h4').textContent = page_count);
+    book_elements.push(book_page_count);
+
+    let book_year_published = document.createElement('div');
+    book_year_published.className = 'book_year_published';
+    book_year_published.appendChild(document.createElement('h4').textContent = year_published);
+    book_elements.push(book_year_published);
+
+    let book_checked_out = document.createElement('div');
+    book_checked_out.className = 'book_checked_out';
+    book_checked_out.appendChild(document.createElement('h4').textContent = checked_out);
+    book_elements.push(book_checked_out);
+
+
+    // Add all book elements into book entry.
+    for (let index = 0; index < 5; index++){
+
+        book_entry.appendChild(book_elements[index]);
+
+    }
+
+    
+    // Book entry is now a blob of all book info for a single book that can be placed on the HTML page.
+    library_collection_display_area.appendChild(book_entry);
+
+
+    
 
     
 
