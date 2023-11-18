@@ -27,5 +27,29 @@ function add_book_to_library(title, author, page_count, year_published, checked_
 
 }
 
+function check_out_book(book){
+
+    /* 
+
+    Checks out a given book from
+    the library, making checked_out = true.
+
+    */
+
+    book.checked_out = true;
+}
+
+function return_book(book){
+
+    /* 
+
+    Returns a given book to the
+    library, making checked_out = false.
+
+    */
+
+    book.checked_out = false;
+}
+
 
 
