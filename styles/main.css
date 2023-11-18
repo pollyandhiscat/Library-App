@@ -17,3 +17,11 @@
     justify-content: space-evenly;
     align-items: center;
 }
+
+#user_greeting {
+
+    color: azure;
+    font-weight: bold;
+    font-size: x-large;
+    
+}
