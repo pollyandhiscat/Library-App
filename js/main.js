@@ -10,7 +10,7 @@ function Book(title, author, page_count, year_published, checked_out) {
     this.page_count = page_count;
     this.year_published = year_published;
     this.checked_out = checked_out;
-    this.getCompleteSummary = function () {
+    this.getCompleteSummary = function() {
 
         let summary = `The book: ${title} by ${author} is ${page_count} pages long ${'\n'} and was published in the year ${year_published}.` + ' ' + (checked_out == true ? 'It is currently checked out.' : 'It is currently not checked out.');
         return summary;
@@ -123,7 +123,7 @@ function display_library_collection() {
     for (let index = 0; index < library_collection.length; index++) {
 
         let book = library_collection[index];
-
+        display_book_on_page(book);
 
     }
 }
