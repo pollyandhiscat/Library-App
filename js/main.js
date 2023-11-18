@@ -1,5 +1,8 @@
 const library_collection = [];
 
+let library_collection_display_area = document.getElementById('library_collection_display_area');
+
+
 function Book(title, author, page_count, year_published, checked_out) {
 
     this.title = title;
@@ -50,5 +53,37 @@ function return_book(book){
     */
 
     book.checked_out = false;
+}
+
+function display_book_on_page(book){
+
+    /*
+
+    Adds a book from the library
+    collection to the page.
+
+    */
+
+    let book_entry = document.createElement('div');
+    book_entry.className = 'book_entry';
+
+
+    
+}
+
+function display_library_collection(){
+
+    /*
+
+    Displays the entire library collection.
+
+    */
+
+    for (let index = 0; index < library_collection.length; index++){
+
+        let book = library_collection[index];
+
+        
+    }
 }
 
