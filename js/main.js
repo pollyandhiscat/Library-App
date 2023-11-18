@@ -13,15 +13,16 @@ function Book(title, author, page_count, year_published, checked_out) {
     }
 }
 
-function add_book_to_library(book) {
+function add_book_to_library(title, author, page_count, year_published, checked_out) {
 
     /*
 
-    Takes a book object and adds it
-    to the library's book collection.
+    Builds a new book and adds it
+    to the library collection.
 
     */
 
+    let new_book = Book(title, author, page_count, year_published, checked_out=false);
     library_collection.push(book);
 
 }
