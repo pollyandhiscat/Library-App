@@ -25,3 +25,15 @@
     font-size: x-large;
     
 }
+
+#show_all_books,
+#show_only_available_books,
+#add_book_to_library,
+#check_out_book {
+
+    border-radius: 10px;
+    height: 30px;
+    width: auto;
+
+
+}
