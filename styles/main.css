@@ -26,6 +26,13 @@
     
 }
 
+.navbar-buttons {
+
+    display: flex;
+    width: 800px;
+    justify-content: space-evenly;
+}
+
 #show_all_books,
 #show_only_available_books,
 #add_book_to_library,
@@ -34,6 +41,5 @@
     border-radius: 10px;
     height: 30px;
     width: auto;
-
 
 }
