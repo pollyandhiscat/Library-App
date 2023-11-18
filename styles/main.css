@@ -2,6 +2,18 @@
 
     display: grid;
     grid-template-columns: repeat(18, 1fr);
-    grid-template-rows: repeat(18, 1fr);
+    grid-template-rows: repeat(18, .5fr);
     
+}
+
+.navbar {
+
+    display: flex;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    border: 2px solid red;
+    justify-content: space-evenly;
+    align-items: center;
 }
