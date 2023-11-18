@@ -10,7 +10,7 @@ function Book(title, author, page_count, year_published, checked_out) {
     this.page_count = page_count;
     this.year_published = year_published;
     this.checked_out = checked_out;
-    this.getCompleteSummary = function() {
+    this.getCompleteSummary = function () {
 
         let summary = `The book: ${title} by ${author} is ${page_count} pages long ${'\n'} and was published in the year ${year_published}.` + ' ' + (checked_out == true ? 'It is currently checked out.' : 'It is currently not checked out.');
         return summary;
@@ -26,12 +26,12 @@ function add_book_to_library(title, author, page_count, year_published) {
 
     */
 
-    let new_book = new Book(title, author, page_count, year_published, checked_out=false);
+    let new_book = new Book(title, author, page_count, year_published, checked_out = false);
     library_collection.push(new_book);
 
 }
 
-function check_out_book(book){
+function check_out_book(book) {
 
     /* 
 
@@ -43,7 +43,7 @@ function check_out_book(book){
     book.checked_out = true;
 }
 
-function return_book(book){
+function return_book(book) {
 
     /* 
 
@@ -55,7 +55,7 @@ function return_book(book){
     book.checked_out = false;
 }
 
-function display_book_on_page(book){
+function display_book_on_page(book) {
 
     /*
 
@@ -100,29 +100,19 @@ function display_book_on_page(book){
     book_checked_out.appendChild(document.createElement('h4').textContent = checked_out);
     book_elements.push(book_checked_out);
 
-
     // Add all book elements into book entry.
-    for (let index = 0; index < 5; index++){
+    for (let index = 0; index < 5; index++) {
 
         book_entry.appendChild(book_elements[index]);
 
     }
 
-    
     // Book entry is now a blob of all book info for a single book that can be placed on the HTML page.
     library_collection_display_area.appendChild(book_entry);
 
-
-    
-
-    
-
-
-
-    
 }
 
-function display_library_collection(){
+function display_library_collection() {
 
     /*
 
@@ -130,11 +120,11 @@ function display_library_collection(){
 
     */
 
-    for (let index = 0; index < library_collection.length; index++){
+    for (let index = 0; index < library_collection.length; index++) {
 
         let book = library_collection[index];
 
-        
+
     }
 }
 
