@@ -1,5 +1,6 @@
 const library_collection = [];
 
+let library_page = document.getElementById('library_page');
 let library_collection_display_area = document.getElementById('library_collection_display_area');
 
 let show_all_books_button = document.getElementById('show_all_books');
@@ -145,6 +146,11 @@ function display_library_collection(available=false) {
     }
 }
 
+function wait(seconds) {
+
+    return new Promise(resolve => setTimeout(resolve, seconds));
+}
+
 function retrieveFieldValue(field_id) {
 
     /*
@@ -175,14 +181,24 @@ add_book_to_library_button.addEventListener('click', ()=>{
     new_book_popup_form.classList.add('open');
 
     let submit_button = document.getElementById('submit_new_book_popup_form');
-    submit_button.addEventListener('click', ()=> {
+    submit_button.addEventListener('click', (e)=> {
 
         let title = retrieveFieldValue('title');
         let author = retrieveFieldValue('author');
         let page_count = retrieveFieldValue('page_count');
         let year_published = retrieveFieldValue('year_published');
         add_book_to_library(title, author, page_count, year_published);
-
+        library_collection_display_area.removeChild(new_book_popup_form);
+        e.preventDefault();
+        let loading_circle = document.createElement('div');
+        loading_circle.className = "loading_circle";
+        let loading_message_element = document.createElement('p');
+        loading_message_element.id = 'loading_message_element'
+        let loading_message = `Adding ${title} to the library collection...`;
+        loading_message_element.textContent = loading_message;
+        library_page.appendChild(loading_message_element);
+        library_page.appendChild(loading_circle);
+        
     });
 
 });
