@@ -117,19 +117,44 @@ function display_book_on_page(book) {
 
 }
 
-function display_library_collection() {
+function display_library_collection(available=false) {
 
     /*
 
     Displays the entire library collection.
+    An optional parameter allows the collection
+    to only display available (not checked out)
+    books.
 
     */
 
     for (let index = 0; index < library_collection.length; index++) {
 
         let book = library_collection[index];
-        display_book_on_page(book);
+        if (available == true && book.available == true){
+
+            display_book_on_page(book);
+
+        }
+
+        else {
+
+            display_book_on_page(book);
+        }
 
     }
 }
 
+
+
+
+
+show_all_books_button.addEventListener('click', ()=>{
+
+    display_library_collection();
+});
+
+show_available_books_button.addEventListener('click', ()=>{
+
+    display_library_collection(true);
+});
