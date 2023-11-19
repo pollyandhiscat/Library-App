@@ -145,7 +145,17 @@ function display_library_collection(available=false) {
     }
 }
 
+function retrieveFieldValue(field_id) {
 
+    /*
+
+    Returns the field value from the given field id.
+
+    */
+
+    return document.getElementById(field_id).value;
+
+}
 
 
 
@@ -163,7 +173,17 @@ add_book_to_library_button.addEventListener('click', ()=>{
 
     let new_book_popup_form = document.getElementById('new_book_popup_form');
     new_book_popup_form.style.display = 'block';
-    //add_book_to_library();
+    let submit_button = document.getElementById('submit_new_book_popup_form');
+    submit_button.addEventListener('click', ()=> {
+
+        let title = retrieveFieldValue('title');
+        let author = retrieveFieldValue('author');
+        let page_count = retrieveFieldValue('page_count');
+        let year_published = retrieveFieldValue('year_published');
+        add_book_to_library(title, author, page_count, year_published);
+
+    });
+
 });
 
 
