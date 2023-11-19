@@ -2,6 +2,11 @@ const library_collection = [];
 
 let library_collection_display_area = document.getElementById('library_collection_display_area');
 
+let show_all_books_button = document.getElementById('show_all_books');
+let show_available_books_button = document.getElementById('show_only_available_books');
+let add_book_to_library_button = document.getElementById('add_book_to_library');
+let check_out_book_button = document.getElementById('check_out_book');
+
 
 function Book(title, author, page_count, year_published, checked_out) {
 
