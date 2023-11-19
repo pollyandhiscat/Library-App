@@ -172,7 +172,8 @@ show_available_books_button.addEventListener('click', ()=>{
 add_book_to_library_button.addEventListener('click', ()=>{
 
     let new_book_popup_form = document.getElementById('new_book_popup_form');
-    new_book_popup_form.style.display = 'block';
+    new_book_popup_form.classList.add('open');
+
     let submit_button = document.getElementById('submit_new_book_popup_form');
     submit_button.addEventListener('click', ()=> {
 
