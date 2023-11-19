@@ -63,13 +63,19 @@
 
 }
 
-.new_book_popup_form {
+#new_book_popup_form {
 
+    display: none;
     position: fixed;
     bottom: 0;
-    display: none;
     right: 10px;
     border: 2px solid yellowgreen;
     z-index: 7;
 
+}
+
+.form {
+
+    background-color: rgb(120, 107, 107);
+    color: azure;
 }
