@@ -63,19 +63,34 @@
 
 }
 
-#new_book_popup_form {
+.new_book_popup_form {
 
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: fixed;
+    top: 0;
     bottom: 0;
-    right: 10px;
-    border: 2px solid yellowgreen;
-    z-index: 7;
+    left: 0;
+    right: 0;
+    transition: all 0.2s ease-in-out;
+    z-index: -1;
 
 }
 
 .form {
 
-    background-color: rgb(120, 107, 107);
+    display: grid;
+    background-color: #3D405B;
     color: azure;
+    height: 300px;
+    width: 300px;
+    border: 5px solid rgb(159, 109, 109);
+    
+}
+
+.new_book_popup_form.open {
+
+    opacity: 1;
+    z-index: 800;
 }
