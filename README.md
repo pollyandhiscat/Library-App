@@ -8,3 +8,4 @@ https://webflow.com/blog/elegant-color-palettes?utm_source=google&utm_medium=sea
 
 https://www.w3schools.com/howto/howto_js_popup_form.asp
 
+https://www.sitepoint.com/delay-sleep-pause-wait/
