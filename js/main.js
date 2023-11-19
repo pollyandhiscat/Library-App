@@ -161,7 +161,9 @@ show_available_books_button.addEventListener('click', ()=>{
 
 add_book_to_library_button.addEventListener('click', ()=>{
 
-    add_book_to_library();
+    let new_book_popup_form = document.getElementById('new_book_popup_form');
+    new_book_popup_form.style.display = 'block';
+    //add_book_to_library();
 });
 
 
