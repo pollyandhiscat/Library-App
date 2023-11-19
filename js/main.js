@@ -158,3 +158,10 @@ show_available_books_button.addEventListener('click', ()=>{
 
     display_library_collection(true);
 });
+
+add_book_to_library_button.addEventListener('click', ()=>{
+
+    add_book_to_library();
+});
+
+
