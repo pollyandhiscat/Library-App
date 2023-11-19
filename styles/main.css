@@ -62,3 +62,14 @@
     background-color: #474787;
 
 }
+
+.new_book_popup_form {
+
+    position: fixed;
+    bottom: 0;
+    display: none;
+    right: 15px;
+    border: 2px solid yellowgreen;
+    z-index: 7;
+
+}
