@@ -79,14 +79,97 @@
 }
 
 .form {
-
     display: grid;
+    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: repeat(10, 1fr);
     background-color: #3D405B;
     color: azure;
     height: 300px;
-    width: 300px;
+    width: 600px;
     border: 5px solid rgb(159, 109, 109);
-    
+}
+
+#title_label {
+
+    font-size: large;
+    font-weight: bold;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 4;
+
+}
+
+#title {
+
+    grid-column-start: 4;
+    grid-column-end: 9;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+#author_label {
+
+    font-size: large;
+    font-weight: bold;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 6;
+
+}
+#author {
+
+    grid-column-start: 4;
+    grid-column-end: 9;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+#page_count_label {
+
+    font-size: large;
+    font-weight: bold;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 6;
+    grid-row-end: 8;
+}
+
+#page_count {
+
+    grid-column-start: 4;
+    grid-column-end: 9;
+    grid-row-start: 6;
+    grid-row-end: 7;
+
+}
+
+#year_published_label {
+
+    font-size: large;
+    font-weight: bold;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 8;
+    grid-row-end: 10;
+}
+
+#year_published {
+
+    grid-column-start: 4;
+    grid-column-end: 9;
+    grid-row-start: 8;
+    grid-row-end: 9;
+}
+
+#submit_new_book_popup_form {
+
+    grid-column-start: 5;
+    grid-column-end: 7;
+    grid-row-start: 10;
+    grid-row-end: -1;
+
 }
 
 .new_book_popup_form.open {
