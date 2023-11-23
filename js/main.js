@@ -193,7 +193,8 @@ add_book_to_library_button.addEventListener('click', ()=>{
         let loading_circle = document.createElement('div');
         loading_circle.className = "loading_circle";
         let loading_message_element = document.createElement('p');
-        loading_message_element.id = 'loading_message_element'
+        loading_message_element.id = 'loading_message_element';
+        loading_message_element.setAttribute('style', 'font-size: large; color: azure;');
         let loading_message = `Adding ${title} to the library collection...`;
         loading_message_element.textContent = loading_message;
         library_page.appendChild(loading_message_element);
