@@ -16,11 +16,106 @@ function Book(title, author, page_count, year_published, checked_out) {
     this.page_count = page_count;
     this.year_published = year_published;
     this.checked_out = checked_out;
-    this.getCompleteSummary = function() {
+    this.getCompleteSummary = function () {
 
         let summary = `The book: ${title} by ${author} is ${page_count} pages long ${'\n'} and was published in the year ${year_published}.` + ' ' + (checked_out == true ? 'It is currently checked out.' : 'It is currently not checked out.');
         return summary;
     }
+}
+
+function add_new_book_popup_form() {
+
+    /*
+
+    Returns the form element that
+    allows users to add a new book
+    to the library collection.
+
+    */
+
+    let form_elements = [];
+
+
+    // Div holds everything.
+    let new_book_popup_div = document.createElement('div');
+    new_book_popup_div.className = 'new_book_popup_form';
+    new_book_popup_div.id = 'new_book_popup_form';
+
+    // Form nested inside div.
+    let new_book_popup_form = document.createElement('form');
+    new_book_popup_form.action = '';
+    new_book_popup_form.className = 'form';
+
+    // Labels, inputs, and submit button all nested within form.
+    let title_label = document.createElement('label');
+    title_label.setAttribute('for', 'title');
+    title_label.id = 'title_label';
+    title_label.textContent = 'Title:';
+    let title_input = document.createElement('input');
+    title_input.type = 'text';
+    title_input.id = 'title';
+    title_input.placeholder = 'Halo: Primordium';
+    title_input.name = 'title';
+    title_input.required = true;
+
+
+    let author_label = document.createElement('label');
+    author_label.setAttribute('for', 'author');
+    author_label.id = 'author_label';
+    author_label.textContent = 'Author:';
+    let author_input = document.createElement('input');
+    author_input.type = 'text';
+    author_input.id = 'author';
+    author_input.placeholder = 'Greg Bear';
+    author_input.name = 'author';
+    author_input.required = true;
+
+    let page_count_label = document.createElement('label');
+    page_count_label.setAttribute('for', 'page_count');
+    page_count_label.id = 'page_count_label';
+    page_count_label.textContent = 'Page Count:';
+    let page_count_input = document.createElement('input');
+    page_count_input.type = 'text';
+    page_count_input.id = 'page_count';
+    page_count_input.placeholder = '384';
+    page_count_input.name = 'page_count';
+    page_count_input.required = true;
+
+    let year_published_label = document.createElement('label');
+    year_published_label.setAttribute('for', 'year_published');
+    year_published_label.id = 'year_published_label';
+    year_published_label.textContent = 'Year Published:';
+    let year_published_input = document.createElement('input');
+    year_published_input.type = 'text';
+    year_published_input.id = 'year_published';
+    year_published_input.placeholder = '2012';
+    year_published_input.name = 'year_published';
+    year_published_input.required = true;
+
+    let submit_new_book_button = document.createElement('button');
+    submit_new_book_button.type = 'submit';
+    submit_new_book_button.id = 'submit_new_book_popup_form';
+    submit_new_book_button.textContent = 'Submit';
+
+    form_elements.push(title_label, title_input, author_label, author_input, page_count_label, page_count_input,
+        year_published_label, year_published_input, submit_new_book_button);
+
+
+    for (let index = 0; index < form_elements.length; index++) {
+
+        item = form_elements[index];
+        new_book_popup_form.appendChild(item);
+
+    }
+
+    new_book_popup_div.appendChild(new_book_popup_form);
+
+    return {
+
+        'new_book_pop_div': new_book_popup_div,
+        'submit_new_book_button': submit_new_book_button,
+    };
+
 }
 
 function add_book_to_library(title, author, page_count, year_published) {
@@ -83,27 +178,37 @@ function display_book_on_page(book) {
 
     let book_title = document.createElement('div');
     book_title.className = 'book_title';
-    book_title.appendChild(document.createElement('h4').textContent = title);
+    book_title_header = document.createElement('h4');
+    book_title_header.textContent = title
+    book_title.appendChild(book_title_header);
     book_elements.push(book_title);
 
     let book_author = document.createElement('div');
     book_author.className = 'book_author';
-    book_author.appendChild(document.createElement('h4').textContent = author);
+    book_author_header = document.createElement('h4');
+    book_author_header.textContent = author;
+    book_author.appendChild(book_author_header);
     book_elements.push(book_author);
 
     let book_page_count = document.createElement('div');
     book_page_count.className = 'book_page_count';
-    book_page_count.appendChild(document.createElement('h4').textContent = page_count);
+    book_page_count_header = document.createElement('h4');
+    book_page_count_header.textContent = page_count
+    book_page_count.appendChild(book_page_count_header);
     book_elements.push(book_page_count);
 
     let book_year_published = document.createElement('div');
     book_year_published.className = 'book_year_published';
-    book_year_published.appendChild(document.createElement('h4').textContent = year_published);
+    book_year_published_header = document.createElement('h4');
+    book_year_published_header.textContent = year_published;
+    book_year_published.appendChild(book_year_published_header);
     book_elements.push(book_year_published);
 
     let book_checked_out = document.createElement('div');
     book_checked_out.className = 'book_checked_out';
-    book_checked_out.appendChild(document.createElement('h4').textContent = checked_out);
+    book_checked_out_header = document.createElement('h4');
+    book_checked_out_header.textContent = checked_out;
+    book_checked_out.appendChild(book_checked_out_header);
     book_elements.push(book_checked_out);
 
     // Add all book elements into book entry.
@@ -118,7 +223,7 @@ function display_book_on_page(book) {
 
 }
 
-function display_library_collection(available=false) {
+function display_library_collection(available = false) {
 
     /*
 
@@ -132,7 +237,7 @@ function display_library_collection(available=false) {
     for (let index = 0; index < library_collection.length; index++) {
 
         let book = library_collection[index];
-        if (available == true && book.available == true){
+        if (available == true && book.available == true) {
 
             display_book_on_page(book);
 
@@ -144,11 +249,6 @@ function display_library_collection(available=false) {
         }
 
     }
-}
-
-function wait(seconds) {
-
-    return new Promise(resolve => setTimeout(resolve, seconds));
 }
 
 function retrieveFieldValue(field_id) {
@@ -185,23 +285,22 @@ function remove_loading_element(loading_message, loading_circle, seconds) {
 
 }
 
-show_all_books_button.addEventListener('click', ()=>{
+show_all_books_button.addEventListener('click', () => {
 
     display_library_collection();
 });
 
-show_available_books_button.addEventListener('click', ()=>{
+show_available_books_button.addEventListener('click', () => {
 
     display_library_collection(true);
 });
 
-add_book_to_library_button.addEventListener('click', ()=>{
+add_book_to_library_button.addEventListener('click', () => {
 
-    let new_book_popup_form = document.getElementById('new_book_popup_form');
-    new_book_popup_form.classList.add('open');
-
-    let submit_button = document.getElementById('submit_new_book_popup_form');
-    submit_button.addEventListener('click', (e)=> {
+    let new_book_form_and_button = add_new_book_popup_form();
+    let new_book_popup_form = new_book_form_and_button['new_book_pop_div'];
+    let submit_button = new_book_form_and_button['submit_new_book_button'];
+    submit_button.addEventListener('click', (e) => {
 
         let title = retrieveFieldValue('title');
         let author = retrieveFieldValue('author');
@@ -220,8 +319,10 @@ add_book_to_library_button.addEventListener('click', ()=>{
         library_page.appendChild(loading_message_element);
         library_page.appendChild(loading_circle);
         remove_loading_element(loading_message_element, loading_circle, 2);
-        
     });
+    
+    new_book_popup_form.classList.add('open');
+    library_page.appendChild(new_book_popup_form);
 
 });
 
