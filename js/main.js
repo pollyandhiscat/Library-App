@@ -163,7 +163,27 @@ function retrieveFieldValue(field_id) {
 
 }
 
+function remove_loading_element(loading_message, loading_circle, seconds) {
 
+    /*
+
+    Removes a loading element from the page
+    simulating the completion of
+    adding an element to the library.
+
+    */
+
+    // Convert to milliseconds as required by setTimeout().
+    seconds = seconds * 1000
+
+    setTimeout(() => {
+
+        library_page.removeChild(loading_message);
+        library_page.removeChild(loading_circle);
+    }, seconds);
+
+
+}
 
 show_all_books_button.addEventListener('click', ()=>{
 
@@ -199,6 +219,7 @@ add_book_to_library_button.addEventListener('click', ()=>{
         loading_message_element.textContent = loading_message;
         library_page.appendChild(loading_message_element);
         library_page.appendChild(loading_circle);
+        remove_loading_element(loading_message_element, loading_circle, 2);
         
     });
 
