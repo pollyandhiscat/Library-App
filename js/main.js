@@ -129,6 +129,7 @@ function add_book_to_library(title, author, page_count, year_published) {
 
     let new_book = new Book(title, author, page_count, year_published, checked_out = false);
     library_collection.push(new_book);
+    return new_book;
 
 }
 
@@ -306,7 +307,7 @@ add_book_to_library_button.addEventListener('click', () => {
         let author = retrieveFieldValue('author');
         let page_count = retrieveFieldValue('page_count');
         let year_published = retrieveFieldValue('year_published');
-        add_book_to_library(title, author, page_count, year_published);
+        let new_book = add_book_to_library(title, author, page_count, year_published);
         new_book_popup_form.remove();
         e.preventDefault();
         let loading_circle = document.createElement('div');
@@ -319,6 +320,12 @@ add_book_to_library_button.addEventListener('click', () => {
         library_page.appendChild(loading_message_element);
         library_page.appendChild(loading_circle);
         remove_loading_element(loading_message_element, loading_circle, 3);
+        setTimeout(() => {
+
+            display_book_on_page(new_book);
+
+        }, 3000);
+
     });
     
     new_book_popup_form.classList.add('open');
