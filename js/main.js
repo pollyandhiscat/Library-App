@@ -176,7 +176,7 @@ function display_book_on_page(book) {
 
     let book_entry = document.createElement('div');
     book_entry.className = 'book_entry';
-
+    
     let book_title = document.createElement('div');
     book_title.className = 'book_title';
     book_title_header = document.createElement('h4');
