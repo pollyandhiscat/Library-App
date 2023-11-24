@@ -52,8 +52,9 @@
 
 #library_collection_display_area {
 
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
     justify-content: center;
     grid-row-start: 2;
     grid-row-end: -1;
@@ -76,6 +77,14 @@
     transition: all 0.8s ease-in-out;
     z-index: -1;
 
+}
+
+.book_entry {
+
+
+    border: 2px solid silver;
+    grid-row-start: span 2;
+    grid-column-start: span 1;
 }
 
 .loading_circle {
