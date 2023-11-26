@@ -180,35 +180,35 @@ function display_book_on_page(book) {
     let book_title = document.createElement('div');
     book_title.className = 'book_title';
     book_title_header = document.createElement('h4');
-    book_title_header.textContent = title
+    book_title_header.textContent = `Title: ${title}`;
     book_title.appendChild(book_title_header);
     book_elements.push(book_title);
 
     let book_author = document.createElement('div');
     book_author.className = 'book_author';
     book_author_header = document.createElement('h4');
-    book_author_header.textContent = author;
+    book_author_header.textContent = `Author: ${author}`;
     book_author.appendChild(book_author_header);
     book_elements.push(book_author);
 
     let book_page_count = document.createElement('div');
     book_page_count.className = 'book_page_count';
     book_page_count_header = document.createElement('h4');
-    book_page_count_header.textContent = page_count
+    book_page_count_header.textContent = `Page Count: ${page_count}`;
     book_page_count.appendChild(book_page_count_header);
     book_elements.push(book_page_count);
 
     let book_year_published = document.createElement('div');
     book_year_published.className = 'book_year_published';
     book_year_published_header = document.createElement('h4');
-    book_year_published_header.textContent = year_published;
+    book_year_published_header.textContent = `Year Published: ${year_published}`;
     book_year_published.appendChild(book_year_published_header);
     book_elements.push(book_year_published);
 
     let book_checked_out = document.createElement('div');
     book_checked_out.className = 'book_checked_out';
     book_checked_out_header = document.createElement('h4');
-    book_checked_out_header.textContent = checked_out;
+    book_checked_out_header.textContent = `Checked Out: ${checked_out}`;
     book_checked_out.appendChild(book_checked_out_header);
     book_elements.push(book_checked_out);
 
