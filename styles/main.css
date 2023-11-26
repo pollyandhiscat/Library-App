@@ -83,6 +83,8 @@
 
 
     border: 2px solid silver;
+    border-radius: 8px;
+    background-color: #CAF0F8;
     grid-row-start: span 2;
     grid-column-start: span 1;
     display: grid;
