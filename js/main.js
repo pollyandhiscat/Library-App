@@ -9,16 +9,16 @@ let add_book_to_library_button = document.getElementById('add_book_to_library');
 let check_out_book_button = document.getElementById('check_out_book');
 
 
-function Book(title, author, page_count, year_published, checked_out) {
+function Book(title, author, page_count, year_published, read) {
 
     this.title = title;
     this.author = author;
     this.page_count = page_count;
     this.year_published = year_published;
-    this.checked_out = checked_out;
+    this.read = read;
     this.getCompleteSummary = function () {
 
-        let summary = `The book: ${title} by ${author} is ${page_count} pages long ${'\n'} and was published in the year ${year_published}.` + ' ' + (checked_out == true ? 'It is currently checked out.' : 'It is currently not checked out.');
+        let summary = `The book: ${title} by ${author} is ${page_count} pages long ${'\n'} and was published in the year ${year_published}.` + ' ' + (read == true ? 'I have read it.' : 'I have not read it.');
         return summary;
     }
 }
@@ -127,34 +127,32 @@ function add_book_to_library(title, author, page_count, year_published) {
 
     */
 
-    let new_book = new Book(title, author, page_count, year_published, checked_out = false);
+    let new_book = new Book(title, author, page_count, year_published, read = false);
     library_collection.push(new_book);
     return new_book;
 
 }
 
-function check_out_book(book) {
+function read_book(book) {
 
     /* 
 
-    Checks out a given book from
-    the library, making checked_out = true.
+    Changes the 'read' attribute of a book to 'true'.
 
     */
 
-    book.checked_out = true;
+    book.read = true;
 }
 
-function return_book(book) {
+function unread_book(book) {
 
     /* 
 
-    Returns a given book to the
-    library, making checked_out = false.
+    Changes the 'read' attribute of a book to 'false'.
 
     */
 
-    book.checked_out = false;
+    book.read = false;
 }
 
 function display_book_on_page(book) {
@@ -172,45 +170,45 @@ function display_book_on_page(book) {
     let author = book.author;
     let page_count = book.page_count;
     let year_published = book.year_published;
-    let checked_out = book.checked_out;
+    let read = book.read;
 
     let book_entry = document.createElement('div');
     book_entry.className = 'book_entry';
     
     let book_title = document.createElement('div');
     book_title.className = 'book_title';
-    book_title_header = document.createElement('h4');
+    let book_title_header = document.createElement('h4');
     book_title_header.textContent = `Title: ${title}`;
     book_title.appendChild(book_title_header);
     book_elements.push(book_title);
 
     let book_author = document.createElement('div');
     book_author.className = 'book_author';
-    book_author_header = document.createElement('h4');
+    let book_author_header = document.createElement('h4');
     book_author_header.textContent = `Author: ${author}`;
     book_author.appendChild(book_author_header);
     book_elements.push(book_author);
 
     let book_page_count = document.createElement('div');
     book_page_count.className = 'book_page_count';
-    book_page_count_header = document.createElement('h4');
+    let book_page_count_header = document.createElement('h4');
     book_page_count_header.textContent = `Page Count: ${page_count}`;
     book_page_count.appendChild(book_page_count_header);
     book_elements.push(book_page_count);
 
     let book_year_published = document.createElement('div');
     book_year_published.className = 'book_year_published';
-    book_year_published_header = document.createElement('h4');
+    let book_year_published_header = document.createElement('h4');
     book_year_published_header.textContent = `Year Published: ${year_published}`;
     book_year_published.appendChild(book_year_published_header);
     book_elements.push(book_year_published);
 
-    let book_checked_out = document.createElement('div');
-    book_checked_out.className = 'book_checked_out';
-    book_checked_out_header = document.createElement('h4');
-    book_checked_out_header.textContent = `Checked Out: ${checked_out}`;
-    book_checked_out.appendChild(book_checked_out_header);
-    book_elements.push(book_checked_out);
+    let book_read = document.createElement('div');
+    book_read.className = 'book_read';
+    let book_read_header = document.createElement('h4');
+    book_read_header.textContent = `Read: ${read}`;
+    book_read.appendChild(book_read_header);
+    book_elements.push(book_read);
 
     let delete_book = document.createElement('img');
     delete_book.className = 'delete_book';
@@ -229,21 +227,21 @@ function display_book_on_page(book) {
 
 }
 
-function display_library_collection(available = false) {
+function display_library_collection(read = false) {
 
     /*
 
     Displays the entire library collection.
     An optional parameter allows the collection
-    to only display available (not checked out)
-    books.
+    to only display non-read books
 
     */
 
     for (let index = 0; index < library_collection.length; index++) {
 
         let book = library_collection[index];
-        if (available == true && book.available == true) {
+        
+        if (read == false && book.read == false) {
 
             display_book_on_page(book);
 
