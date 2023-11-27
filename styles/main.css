@@ -124,7 +124,7 @@
     grid-column-end: 8;
 }
 
-.book_checked_out {
+.book_read {
 
     grid-row-start: 5;
     grid-row-end: 5;
