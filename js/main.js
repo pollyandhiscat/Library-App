@@ -1,4 +1,5 @@
 const library_collection = [];
+let book_id = 0; // Book ID will be a simple integer value, locally tracked. However, database storage should be considered for future iterations of this project.
 
 let library_page = document.getElementById('library_page');
 let library_collection_display_area = document.getElementById('library_collection_display_area');
@@ -8,14 +9,27 @@ let show_available_books_button = document.getElementById('show_only_available_b
 let add_book_to_library_button = document.getElementById('add_book_to_library');
 let check_out_book_button = document.getElementById('check_out_book');
 
+function get_book_id(){
 
-function Book(title, author, page_count, year_published, read) {
+    /*
+
+    Calculates and returns the next
+    available book ID.
+
+    */
+
+    book_id += 1;
+    return book_id;
+}
+
+function Book(title, author, page_count, year_published, read = false) {
 
     this.title = title;
     this.author = author;
     this.page_count = page_count;
     this.year_published = year_published;
     this.read = read;
+    this.book_id = get_book_id();
     this.getCompleteSummary = function () {
 
         let summary = `The book: ${title} by ${author} is ${page_count} pages long ${'\n'} and was published in the year ${year_published}.` + ' ' + (read == true ? 'I have read it.' : 'I have not read it.');
@@ -240,7 +254,7 @@ function display_library_collection(read = false) {
     for (let index = 0; index < library_collection.length; index++) {
 
         let book = library_collection[index];
-        
+
         if (read == false && book.read == false) {
 
             display_book_on_page(book);
