@@ -215,7 +215,7 @@ function display_book_on_page(book) {
     let delete_book = document.createElement('img');
     delete_book.className = 'delete_book';
     delete_book.src = './images/trash3-fill.svg';
-    
+    book_elements.push(delete_book);
 
     // Add all book elements into book entry.
     for (let index = 0; index < 6; index++) {
