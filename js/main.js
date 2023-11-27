@@ -212,8 +212,13 @@ function display_book_on_page(book) {
     book_checked_out.appendChild(book_checked_out_header);
     book_elements.push(book_checked_out);
 
+    let delete_book = document.createElement('img');
+    delete_book.className = 'delete_book';
+    delete_book.src = './images/trash3-fill.svg';
+    
+
     // Add all book elements into book entry.
-    for (let index = 0; index < 5; index++) {
+    for (let index = 0; index < 6; index++) {
 
         book_entry.appendChild(book_elements[index]);
 
