@@ -132,6 +132,14 @@
     grid-column-end: 4;
 }
 
+.delete_book {
+
+    grid-row-start: 4;
+    grid-row-end: 4;
+    grid-column-start: 4;
+    grid-column-end: 5;
+}
+
 .loading_circle {
 
     grid-row-start: 6;
