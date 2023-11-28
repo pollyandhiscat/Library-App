@@ -169,6 +169,7 @@ function unread_book(book) {
     book.read = false;
 }
 
+
 function remove_book(id) {
 
     /*
@@ -179,11 +180,36 @@ function remove_book(id) {
 
     */
 
-    id = 'book_entry' + String(id);
+    let element_id = 'book_entry' + String(id);
     
     // First we remove the book from the display.
-    let book_entry = document.getElementById(id);
+    let book_entry = document.getElementById(element_id);
     library_collection_display_area.removeChild(book_entry);
+
+    // With the book off the screen, remove it from the storage array.
+    for (let index = 0; index < library_collection.length; index++) {
+
+        let book = library_collection[index];
+        let book_id = book.book_id;
+
+        // Use the shift method if the book is first in the library collection array.
+        if (book_id == id && index == 0) {
+
+            library_collection.shift();
+        }
+
+        // Use the pop method if the book is last in the library collection array.
+        else if (book_id == id && index == library_collection.length - 1) {
+
+            library_collection.pop();
+        }
+
+        // Otherwise, splice the array to remove the book.
+        else if (book_id == id) {
+
+            library_collection.splice(index, 1)
+        }
+    }
     
 
 }
