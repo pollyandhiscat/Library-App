@@ -169,6 +169,25 @@ function unread_book(book) {
     book.read = false;
 }
 
+function remove_book(id) {
+
+    /*
+
+    Removes the book with the supplied
+    ID from the library collection
+    and display area.
+
+    */
+
+    id = 'book_entry' + String(id);
+    
+    // First we remove the book from the display.
+    let book_entry = document.getElementById(id);
+    library_collection_display_area.removeChild(book_entry);
+    
+
+}
+
 function display_book_on_page(book) {
 
     /*
@@ -185,9 +204,11 @@ function display_book_on_page(book) {
     let page_count = book.page_count;
     let year_published = book.year_published;
     let read = book.read;
+    let id = book.book_id;
 
     let book_entry = document.createElement('div');
     book_entry.className = 'book_entry';
+    book_entry.id = `book_entry${id}`;
     
     let book_title = document.createElement('div');
     book_title.className = 'book_title';
@@ -223,11 +244,19 @@ function display_book_on_page(book) {
     book_read_header.textContent = `Read: ${read}`;
     book_read.appendChild(book_read_header);
     book_elements.push(book_read);
-
+    
     let delete_book = document.createElement('img');
     delete_book.className = 'delete_book';
+    delete_book.id = `delete_book${id}`;
     delete_book.src = './images/trash3-fill.svg';
+
+    delete_book.addEventListener('click', () => {
+
+        remove_book(id);
+    });
+
     book_elements.push(delete_book);
+
 
     // Add all book elements into book entry.
     for (let index = 0; index < 6; index++) {
