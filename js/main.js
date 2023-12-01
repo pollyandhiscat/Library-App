@@ -147,33 +147,27 @@ function add_book_to_library(title, author, page_count, year_published) {
 
 }
 
-function unread_book(book) {
 
-    /* 
 
-    Changes the 'read' attribute of a book to 'false'.
-
-    */
-
-    book.read = false;
-}
-
-function read_book(id) {
+function mark_book_as_read_book(id, readTextElement) {
 
     /*
 
     Marks the book with the supplied
-    ID as 'read'.
+    ID as 'read' and changes the text
+    element supplied to 'true';
 
     */
 
-    for (let index = 0; index < library_collection.length; i++) {
+    for (let index = 0; index < library_collection.length; index++) {
 
         let book = library_collection[index];
 
         if (book.book_id == id) {
 
             book.read = true;
+            readTextElement.textContent = `Read: ${book.read}`;
+
         }
     }
 
@@ -294,7 +288,7 @@ function display_book_on_page(book) {
 
     read_book.addEventListener('click', () => {
 
-        read_book(id);
+        mark_book_as_read_book(id, book_read_header);
 
     });
 
