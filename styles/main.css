@@ -149,6 +149,14 @@
 
 }
 
+.unread_book {
+
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 8;
+    grid-column-end: -1;
+}
+
 .loading_circle {
 
     grid-row-start: 6;
