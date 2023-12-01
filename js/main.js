@@ -323,7 +323,7 @@ function display_library_collection(read = false) {
 
     */
 
-    clear_screen();
+    clear_screen(); // We clear the screen and then display books so as to avoid displaying duplicates.
 
     for (let index = 0; index < library_collection.length; index++) {
 
