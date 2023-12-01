@@ -5,7 +5,7 @@ let library_page = document.getElementById('library_page');
 let library_collection_display_area = document.getElementById('library_collection_display_area');
 
 let show_all_books_button = document.getElementById('show_all_books');
-let show_available_books_button = document.getElementById('show_only_available_books');
+let show_read_books_button = document.getElementById('show_only_read_books');
 let add_book_to_library_button = document.getElementById('add_book_to_library');
 let check_out_book_button = document.getElementById('check_out_book');
 
@@ -296,6 +296,23 @@ function display_book_on_page(book) {
 
 }
 
+function clear_screen() {
+
+    /*
+
+    Clears the screen of all book entries
+    without removing the books from the
+    library collection (array).
+
+    */
+
+    while (library_collection_display_area.hasChildNodes()){
+
+        library_collection_display_area.removeChild(library_collection_display_area.firstChild)
+
+    }
+}
+
 function display_library_collection(read = false) {
 
     /*
@@ -305,6 +322,8 @@ function display_library_collection(read = false) {
     to only display non-read books
 
     */
+
+    clear_screen();
 
     for (let index = 0; index < library_collection.length; index++) {
 
@@ -363,7 +382,7 @@ show_all_books_button.addEventListener('click', () => {
     display_library_collection();
 });
 
-show_available_books_button.addEventListener('click', () => {
+show_read_books_button.addEventListener('click', () => {
 
     display_library_collection(true);
 });
