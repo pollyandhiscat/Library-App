@@ -173,6 +173,30 @@ function mark_book_as_read_book(id, readTextElement) {
 
 }
 
+function mark_book_as_unread_book(id, unreadTextElement) {
+
+    /*
+
+    Marks the book with the supplied
+    ID as 'unread' and changes the text
+    element supplied to 'false';
+
+    */
+
+    for (let index = 0; index < library_collection.length; index++) {
+
+        let book = library_collection[index];
+
+        if (book.book_id == id) {
+
+            book.read = false;
+            unreadTextElement.textContent = `Read: ${book.read}`;
+
+        }
+    }
+
+}
+
 
 function remove_book(id) {
 
@@ -284,7 +308,17 @@ function display_book_on_page(book) {
     read_book.className = 'read_book';
     read_book.id = `read_book${id}`;
     read_book.src = './images/bookmark-check-fill.svg';
-    
+
+    let unread_book = document.createElement('img');
+    unread_book.className = 'unread_book';
+    unread_book.id = `unread_book${id}`;
+    unread_book.src = './images/bookmark-x.svg';
+
+    unread_book.addEventListener('click', () => {
+
+        mark_book_as_unread_book(id, book_read_header);
+
+    });
 
     read_book.addEventListener('click', () => {
 
@@ -299,10 +333,11 @@ function display_book_on_page(book) {
 
     book_elements.push(delete_book);
     book_elements.push(read_book);
+    book_elements.push(unread_book);
 
 
     // Add all book elements into book entry.
-    for (let index = 0; index < 7; index++) {
+    for (let index = 0; index < 8; index++) {
 
         book_entry.appendChild(book_elements[index]);
 
