@@ -147,17 +147,6 @@ function add_book_to_library(title, author, page_count, year_published) {
 
 }
 
-function read_book(book) {
-
-    /* 
-
-    Changes the 'read' attribute of a book to 'true'.
-
-    */
-
-    book.read = true;
-}
-
 function unread_book(book) {
 
     /* 
@@ -167,6 +156,27 @@ function unread_book(book) {
     */
 
     book.read = false;
+}
+
+function read_book(id) {
+
+    /*
+
+    Marks the book with the supplied
+    ID as 'read'.
+
+    */
+
+    for (let index = 0; index < library_collection.length; i++) {
+
+        let book = library_collection[index];
+
+        if (book.book_id == id) {
+
+            book.read = true;
+        }
+    }
+
 }
 
 
@@ -276,16 +286,29 @@ function display_book_on_page(book) {
     delete_book.id = `delete_book${id}`;
     delete_book.src = './images/trash3-fill.svg';
 
+    let read_book = document.createElement('img');
+    read_book.className = 'read_book';
+    read_book.id = `read_book${id}`;
+    read_book.src = './images/bookmark-check-fill.svg';
+    
+
+    read_book.addEventListener('click', () => {
+
+        read_book(id);
+
+    });
+
     delete_book.addEventListener('click', () => {
 
         remove_book(id);
     });
 
     book_elements.push(delete_book);
+    book_elements.push(read_book);
 
 
     // Add all book elements into book entry.
-    for (let index = 0; index < 6; index++) {
+    for (let index = 0; index < 7; index++) {
 
         book_entry.appendChild(book_elements[index]);
 
