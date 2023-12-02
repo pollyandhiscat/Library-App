@@ -387,7 +387,7 @@ function display_library_collection(read = false) {
 
         }
 
-        else {
+        else if (read == true && book.read == true) {
 
             display_book_on_page(book);
         }
