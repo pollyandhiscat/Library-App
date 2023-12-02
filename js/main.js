@@ -381,13 +381,13 @@ function display_library_collection(read = false) {
 
         let book = library_collection[index];
 
-        if (read == false && book.read == false) {
+        if (read == true && book.read == true) {
 
             display_book_on_page(book);
 
         }
 
-        else if (read == true && book.read == true) {
+        else if (read == false) {
 
             display_book_on_page(book);
         }
@@ -431,7 +431,7 @@ function remove_loading_element(loading_message, loading_circle, seconds) {
 
 show_all_books_button.addEventListener('click', () => {
 
-    display_library_collection();
+    display_library_collection(false);
 });
 
 show_read_books_button.addEventListener('click', () => {
